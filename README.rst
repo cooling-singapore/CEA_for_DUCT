@@ -3,7 +3,7 @@ City Energy Analyst (CEA) Fork: Contributions from the Cooling Singapore Project
 ==========================================================================================
 
 This repository is a fork of the City Energy Analyst (CEA) and includes developments made as part of the
-**`Cooling Singapore project (CS2.0) <https://sec.ethz.ch/research/cs.html>`_**.
+`Cooling Singapore project (CS2.0) <https://sec.ethz.ch/research/cs.html>`_.
 Like other repositories within this organization, this fork serves as one of the core building blocks
 of the Digital Urban Climate Twin (DUCT), developed under CS2.0. The DUCT integrates several computational models to
 simulate urban heat and assess heat mitigation strategies in Singapore.
@@ -28,7 +28,9 @@ The main contributions of this forked branch can be summarized as follows:
    efficiency standards.
 
    - **Main Contributor**: `@lguilhermers <https://github.com/lguilhermers>`_
-   - **Core File Location**: ``cea/databases/SG_SLE``
+   - **Core File Location**:
+
+     - ``cea/databases/SG_SLE``
 
 2. **New Input Parameters for Anthropogenic Heat Profiles**
 
@@ -43,6 +45,7 @@ The main contributions of this forked branch can be summarized as follows:
 
    - **Main Contributor**: `@MatNif <https://github.com/MatNif>`_
    - **Core File Locations**:
+
      - ``cea/demand/anthropogenic_heat_emissions.py``
      - ``cea/optimization_new/domain.py``
      - ``cea/default.config``
@@ -61,6 +64,7 @@ The main contributions of this forked branch can be summarized as follows:
 
    - **Main Contributor**: `@peppenappi <https://github.com/peppenappi>`_
    - **Core File Locations**:
+
      - ``cea/resources``
      - ``cea/optimization_new``
 
@@ -71,6 +75,7 @@ The main contributions of this forked branch can be summarized as follows:
 
    - **Main Contributor**: `@YiKaiTsai <https://github.com/YiKaiTsai>`_
    - **Core File Location**:
+
      - ``cea/demand/datacenter_loads.py``
 
 
@@ -78,6 +83,8 @@ How to Use This Fork
 ====================
 
 To explore the contributions described above, you can start by examining the core file locations specified for each feature.
-The changes are modular and designed to support CEA's existing workflows, with extensions to provide better insights into
-energy demand, emissions, and optimization in the context of urban heat island mitigation and distributed renewable energy.
+The changes are integrated with the original CEA codebase and designed to support CEA's existing workflows. If you would like 
+to dive deeper into what separates this branch from the main branch of CEA, you can check out the `main contributor's commits <https://github.com/cooling-singapore/CEA_for_DUCT/commits/CEA-for-DUCT/>`_ 
+to this forked branch, or use PyCharm's `Compare with Branch <https://www.jetbrains.com/guide/tips/compare-with-branch/>`_ feature.
+
 
