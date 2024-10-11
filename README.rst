@@ -50,7 +50,20 @@ The main contributions of this forked branch can be summarized as follows:
      - ``cea/optimization_new/domain.py``
      - ``cea/default.config``
 
-3. **Integration of Distributed Renewable Energy Generation into Thermal Network Optimization**
+3. **Analysis of Pharmaceutical and Semiconductor Production Facilities**
+
+   This feature extends the previously implemented process-cooling systems (originally developed for data centers) to two
+   additional industrial sectors: pharmaceutical and semiconductor production facilities.
+
+   - **Main Contributor**: `@YiKaiTsai <https://github.com/YiKaiTsai>`_
+   - **Core File Location**:
+
+     - ``cea/demand/datacenter_loads.py``
+
+4. **Integration of Distributed Renewable Energy Generation into Thermal Network Optimization**
+
+   *Disclaimer: This development is only included in the 'CEA-for-DUCT-full-developments' branch due to a few compatibility 
+   issues with the current DUCT architecture.*
 
    This development expands the optimization algorithm to include the sizing of distributed renewable energy generation
    technologies (e.g., photovoltaic and solar thermal rooftops). The optimization now considers:
@@ -67,16 +80,6 @@ The main contributions of this forked branch can be summarized as follows:
 
      - ``cea/resources``
      - ``cea/optimization_new``
-
-4. **Analysis of Pharmaceutical and Semiconductor Production Facilities**
-
-   This feature extends the previously implemented process-cooling systems (originally developed for data centers) to two
-   additional industrial sectors: pharmaceutical and semiconductor production facilities.
-
-   - **Main Contributor**: `@YiKaiTsai <https://github.com/YiKaiTsai>`_
-   - **Core File Location**:
-
-     - ``cea/demand/datacenter_loads.py``
 
 
 How to Use This Fork
