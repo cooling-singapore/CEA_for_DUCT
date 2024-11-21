@@ -393,83 +393,83 @@ class InputLocator(object):
         des_solution_folders = [folder for folder in des_solution_folders if folder != 'debugging']
         return des_solution_folders
 
-    def get_centralized_optimization_optimal_district_energy_system_folder(self, run_id=None,
-                                                                           district_energy_system_id='DES_000'):
+    def get_centralized_optimization_optimal_district_energy_system_folder(self, district_energy_system_id='DES_000',
+                                                                           run_id=None):
         """Returns the results-folder for the n-th near pareto-optimal district energy system"""
         return self._ensure_folder(self.get_centralized_optimization_results_folder(run_id),
                                    f'{district_energy_system_id}')
 
-    def get_centralized_optimization_optimal_networks_folder(self, run_id=None, district_energy_system_id='DES_000'):
+    def get_centralized_optimization_optimal_networks_folder(self, district_energy_system_id='DES_000', run_id=None):
         """Returns the results-folder for the i-th network of the n-th near-pareto-optimal DES"""
-        des_folder = self.get_centralized_optimization_optimal_district_energy_system_folder(run_id,
-                                                                                             district_energy_system_id)
+        des_folder = self.get_centralized_optimization_optimal_district_energy_system_folder(district_energy_system_id,
+                                                                                             run_id)
         return self._ensure_folder(des_folder, 'networks')
 
-    def get_centralized_optimization_optimal_network_layout_file(self, run_id=None, district_energy_system_id='DES_000',
-                                                                 network_id='N0000'):
+    def get_centralized_optimization_optimal_network_layout_file(self, district_energy_system_id='DES_000',
+                                                                 network_id='N0000', run_id=None):
         """Returns the result-path for the layout of the i-th network of the n-th near-pareto-optimal DES"""
-        network_folder = self.get_centralized_optimization_optimal_networks_folder(run_id, district_energy_system_id)
+        network_folder = self.get_centralized_optimization_optimal_networks_folder(district_energy_system_id, run_id)
         return os.path.join(network_folder, f'{network_id}_layout.geojson')
 
-    def get_centralized_optimization_optimal_supply_systems_folder(self, run_id=None,
-                                                                   district_energy_system_id='DES_000'):
+    def get_centralized_optimization_optimal_supply_systems_folder(self, district_energy_system_id='DES_000',
+                                                                   run_id=None):
         """Returns the results-file for the general supply systems results of the n-th near-pareto-optimal DES"""
-        des_folder = self.get_centralized_optimization_optimal_district_energy_system_folder(run_id,
-                                                                                             district_energy_system_id)
+        des_folder = self.get_centralized_optimization_optimal_district_energy_system_folder(district_energy_system_id,
+                                                                                             run_id)
         return self._ensure_folder(des_folder, 'Supply_systems')
 
-    def get_centralized_optimization_optimal_supply_system_ids(self, run_id=None, district_energy_system_id='DES_000'):
+    def get_centralized_optimization_optimal_supply_system_ids(self, district_energy_system_id='DES_000', run_id=None):
         """Returns the identifiers of the supply systems of the n-th near-pareto-optimal DES"""
-        des_supsys_folder = self.get_centralized_optimization_optimal_supply_systems_folder(run_id,
-                                                                                            district_energy_system_id)
+        des_supsys_folder = self.get_centralized_optimization_optimal_supply_systems_folder(district_energy_system_id,
+                                                                                            run_id)
         supply_system_files = next(os.walk(des_supsys_folder))[2]
         supply_system_ids = [file.split('_')[0] for file in supply_system_files
                              if file.split('.')[1] == 'csv' and file.split('_')[0] != 'Supply']
         return supply_system_ids
 
-    def get_centralized_optimization_optimal_supply_system_file(self, run_id=None, district_energy_system_id='DES_000',
-                                                                supply_system_id='N0000_or_B0000'):
+    def get_centralized_optimization_optimal_supply_system_file(self, district_energy_system_id='DES_000',
+                                                                supply_system_id='N0000_or_B0000', run_id=None):
         """Returns the results-file for the supply systems summary of the n-th near-pareto-optimal DES"""
-        des_supsys_folder = self.get_centralized_optimization_optimal_supply_systems_folder(run_id,
-                                                                                            district_energy_system_id)
+        des_supsys_folder = self.get_centralized_optimization_optimal_supply_systems_folder(district_energy_system_id,
+                                                                                            run_id)
         return os.path.join(des_supsys_folder, f'{supply_system_id}_supply_system_structure.csv')
 
-    def get_centralized_optimization_optimal_supply_systems_summary_file(self, run_id=None,
-                                                                         district_energy_system_id='DES_000'):
+    def get_centralized_optimization_optimal_supply_systems_summary_file(self, district_energy_system_id='DES_000',
+                                                                         run_id=None):
         """Returns the results-file for the supply systems summary of the n-th near-pareto-optimal DES"""
-        des_supsys_folder = self.get_centralized_optimization_optimal_supply_systems_folder(run_id,
-                                                                                            district_energy_system_id)
+        des_supsys_folder = self.get_centralized_optimization_optimal_supply_systems_folder(district_energy_system_id,
+                                                                                            run_id)
         return os.path.join(des_supsys_folder, 'Supply_systems_summary.csv')
 
-    def get_centralized_optimization_supply_system_details_folder(self, run_id=None,
-                                                                  district_energy_system_id='DES_000'):
+    def get_centralized_optimization_supply_system_details_folder(self, district_energy_system_id='DES_000',
+                                                                  run_id=None):
         """Returns the results-folder for the detailed supply system information of the n-th near-pareto-optimal DES"""
-        des_folder = self.get_centralized_optimization_optimal_district_energy_system_folder(run_id,
-                                                                                             district_energy_system_id)
+        des_folder = self.get_centralized_optimization_optimal_district_energy_system_folder(district_energy_system_id,
+                                                                                             run_id)
         return self._ensure_folder(des_folder, 'Supply_system_operation_details')
 
-    def get_centralized_optimization_detailed_network_performance_file(self, run_id=None,
-                                                                       district_energy_system_id='DES_000'):
+    def get_centralized_optimization_detailed_network_performance_file(self, district_energy_system_id='DES_000',
+                                                                       run_id=None):
         """Returns the results-file for the detailed performance of the n-th near-pareto-optimal DES's networks"""
-        des_details_folder = self.get_centralized_optimization_supply_system_details_folder(run_id,
-                                                                                            district_energy_system_id)
+        des_details_folder = self.get_centralized_optimization_supply_system_details_folder(district_energy_system_id,
+                                                                                            run_id)
         return os.path.join(des_details_folder, 'network_performance.csv')
 
-    def get_centralized_optimization_supply_systems_detailed_operation_file(self, run_id=None,
-                                                                            district_energy_system_id='DES_000',
-                                                                            supply_system_id='N0000_or_B0000'):
+    def get_centralized_optimization_supply_systems_detailed_operation_file(self, district_energy_system_id='DES_000',
+                                                                            supply_system_id='N0000_or_B0000',
+                                                                            run_id=None):
         """Returns the results-file for the supply systems operation profiles of the n-th near-pareto-optimal DES"""
-        des_details_folder = self.get_centralized_optimization_supply_system_details_folder(run_id,
-                                                                                            district_energy_system_id)
+        des_details_folder = self.get_centralized_optimization_supply_system_details_folder(district_energy_system_id,
+                                                                                            run_id)
         return os.path.join(des_details_folder, f'{supply_system_id}_operation.csv')
 
-    def get_centralized_optimization_supply_systems_annual_breakdown_file(self, run_id=None,
-                                                                          district_energy_system_id='DES_000',
-                                                                          supply_system_id='N0000_or_B0000'):
+    def get_centralized_optimization_supply_systems_annual_breakdown_file(self, district_energy_system_id='DES_000',
+                                                                          supply_system_id='N0000_or_B0000',
+                                                                          run_id=None):
         """Returns the results-file for the breakdown of a supply systems annual operation (in terms of energy demand,
         cost, GHG- and heat-emissions) in the n-th near-pareto-optimal DES"""
-        des_details_folder = self.get_centralized_optimization_supply_system_details_folder(run_id,
-                                                                                            district_energy_system_id)
+        des_details_folder = self.get_centralized_optimization_supply_system_details_folder(district_energy_system_id,
+                                                                                            run_id)
         return os.path.join(des_details_folder, f'{supply_system_id}_annual_breakdown.csv')
 
     def get_centralized_optimization_debugging_folder(self, run_id=None):
